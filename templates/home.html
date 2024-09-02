@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="p-8 min-h-screen items-center justify-center">
+    <div class="ml-4 grid grid-cols-2">
+        {% for user in users %}
+        <div class="border border-blue-600 p-4 m-4 w-[700px]">
+            <span>Id : {{ user["_id"]}}</span> <br>
+            <span>Username : {{ user["username"]}} </span><br>
+            <span>Email : {{ user ["email"]}}</span><br><br>
+
+            <div class="flex w-full justify-end">
+                <a href="{{ url_for('user', id=user['_id'])}}">
+                    <button class="p-2 border bg-red-500 text-white">
+                        Voir plus
+                    </button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
